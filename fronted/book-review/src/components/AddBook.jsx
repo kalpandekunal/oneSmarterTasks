@@ -40,11 +40,12 @@ export const AddBook = () => {
   return (<>
  
     <Heading marginTop={'100px'}>Add Book</Heading>
-    <Box p={4} width={'30%'} margin={'auto'} border={'1px solid grey'}>
+    <br />
+    <Box p={4} width={'30%'} margin={'auto'} border={'2px solid grey'} borderRadius={'5px'}>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4}>
           <FormControl>
-            <FormLabel>Image URL</FormLabel>
+            <FormLabel>Image URL :</FormLabel>
             <Input
               type="text"
               name="img"
@@ -56,7 +57,7 @@ export const AddBook = () => {
           </FormControl>
 
           <FormControl>
-            <FormLabel>Title</FormLabel>
+            <FormLabel>Title :</FormLabel>
             <Input
               type="text"
               name="title"
@@ -68,7 +69,7 @@ export const AddBook = () => {
           </FormControl>
 
           <FormControl>
-            <FormLabel>Author</FormLabel>
+            <FormLabel>Author :</FormLabel>
             <Input
               name="author"
               placeholder='Enter author . . .'
@@ -79,7 +80,7 @@ export const AddBook = () => {
           </FormControl>
 
           <FormControl>
-            <FormLabel>Description</FormLabel>
+            <FormLabel>Description :</FormLabel>
             <Input
               name="desc"
               placeholder='Enter description . . .'
@@ -88,7 +89,7 @@ export const AddBook = () => {
             >
             </Input>
           </FormControl>
-            <Input type='submit' value={'Add Product'}></Input>
+            <Input type='submit' value={'Add Book'} bg={'tomato'} fontWeight={'bold'}></Input>
           
         </VStack>
       </form>

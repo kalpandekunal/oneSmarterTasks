@@ -55,25 +55,30 @@ export const Dashboard = () => {
     <Heading>Review Data Analysis</Heading>
     <br />
     <br />
-    <Box  marginLeft={'400px'}>
-          <Box width={'50%'} border={'1px solid grey'} height={'40px'}>
-          <Box width={'60%'} height={'40px'} backgroundColor={'#79C8F7'}>
-          <Text fontSize="lg" fontWeight="bold" mb={2}>
+    <Text fontSize="lg" fontWeight="bold" mb={2} >
           Reviews Added Per Day : {numOfRev}
         </Text>
+    <Box  marginLeft={'460px'}>
+    
+          <Box width={'50%'} border={'1px solid grey'} height={'40px'}>
+          <Box width={'60%'} height={'40px'} backgroundColor={'#79C8F7'}>
+          
         </Box>
           </Box>
           <br />
           <br />
-          <Box width={'50%'} border={'1px solid grey'} height={'40px'}>
-            <Flex gap={'60px'}>
-            <Box width={'5%'} height={'40px'} backgroundColor={'#79C8F7 '}></Box>
-          <Text fontSize="lg" fontWeight="bold" mb={2}>
-          Average Ratings Per Day :{avgRating.toFixed(2)}
+          </Box>
+          <Text fontSize="lg" fontWeight="bold" mb={2} >
+          Average Ratings :{avgRating.toFixed(2)}
         </Text>
+          <Box width={'34%'} border={'1px solid grey'} height={'40px'} marginLeft={'460px'}>
+          
+            <Flex gap={'60px'}>
+            <Box width={'5%'} height={'40px'} backgroundColor={'#79C8F7 '} marginLeft={'0px'}></Box>
+
         </Flex>
           </Box>
-        </Box>
+        
       <AddBook />
     <Footer />
     </Box>
