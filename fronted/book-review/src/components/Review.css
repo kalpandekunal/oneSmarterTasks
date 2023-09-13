@@ -1,0 +1,16 @@
+.review{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 90%;
+    height:auto;
+    gap: 10px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.review{
+    @media screen and (max-width: 500px){
+        grid-template-columns: repeat(1,1fr);
+    }
+}
