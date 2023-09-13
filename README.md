@@ -1,7 +1,7 @@
 # THE RIGHT BOOK
 A website where the user can create,read,update and delete the review on a book.
 
-# Deployed link : 
+# Deployed link : http://therightbooks.s3-website-us-east-1.amazonaws.com/
 
 # Set up
 * Create a github repository
