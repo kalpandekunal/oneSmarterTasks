@@ -6,12 +6,15 @@ import {
   Input,
   VStack,
   Heading,
+  Text
 } from '@chakra-ui/react';
 import { fetchProduct } from '../Redux/Product/action';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const AddBook = () => {
+export const AddBook = ({length}) => {
     const dispatch = useDispatch();
+    const products = useSelector(store => store.authReducer.products)
+  
 
     const initialState = {
         img: '',
@@ -39,9 +42,9 @@ export const AddBook = () => {
 
   return (<>
  
-    <Heading marginTop={'100px'}>Add Book</Heading>
+    <Heading>Add Book</Heading>
     <br />
-    <Box p={4} width={'30%'} margin={'auto'} border={'2px solid grey'} borderRadius={'5px'}>
+    <Box p={4} width={'60%'} margin={'auto'} border={'2px solid grey'} borderRadius={'5px'}>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4}>
           <FormControl>

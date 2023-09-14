@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_PRODUCT_SUCCESS, POST_PRODUCT_SUCCESS, PRODUCT_FAILURE, PRODUCT_REQUEST } from "./actionTypes"
+import { GET_PRODUCT_SUCCESS, POST_PRODUCT_SUCCESS, PRODUCT_FAILURE, PRODUCT_REQUEST, SEARCH_PRODUCT } from "./actionTypes"
 
 
 export const fetchProduct = (newProduct)=>(dispatch)=>{
@@ -26,3 +26,6 @@ export const getProduct = (obj)=>(dispatch)=>{
         dispatch({type:PRODUCT_FAILURE});
     })
 }
+
+
+export const searchProduct = (payload) =>({type: SEARCH_PRODUCT,payload});

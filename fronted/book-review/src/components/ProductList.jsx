@@ -4,10 +4,13 @@ import {styled} from "styled-components";
 import { getProduct } from '../Redux/Product/action';
 import { ProductsCard } from './ProductsCard';
 import { Dashboard } from '../Pages/Dashboard';
+import { Box } from '@chakra-ui/react';
+import { AddBook } from './AddBook';
+
 
 export const ProductList = () => {
     const products = useSelector(store => store.productReducer.products);
-     //console.log(products);
+    
     const dispatch = useDispatch();
     
     
@@ -15,16 +18,19 @@ export const ProductList = () => {
         dispatch(getProduct());
     },[]);
 
+    
     return <DIV>
+        
     {
         products.length > 0 && products.map((el)=>{
             return <ProductsCard key={el._id} {...el}/>
-           
-            
+                
         })
     }
+    
    
     </DIV>
+    
 }
 
 

@@ -44,7 +44,7 @@
     color: teal;
   }
   
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 900px) {
     .about-flex{
         display: grid;
         grid-template-columns: repeat(2, 1fr);

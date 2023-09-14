@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Card, CardBody, CardFooter,Image,Stack,Heading,Text,Button,Divider,ButtonGroup, Img } from '@chakra-ui/react'
+import { Card, CardBody, CardFooter,Image,Stack,Heading,Text,Button,Divider,ButtonGroup, Img, Box } from '@chakra-ui/react'
 import { Ratings } from "./Ratings"
 import { DeleteBook } from "./DeleteBook";
 
@@ -9,6 +9,7 @@ let  productDetailPage = window.location.pathname;
 
   
 return (
+  
 <Card maxW='sm' _hover={{"box-shadow": "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"}} border='1px solid black'>
   <CardBody>
   <Link to={`productdetails/${_id}`}>
@@ -50,6 +51,7 @@ return (
   }
   
 </Card>
+
 )
 
 }

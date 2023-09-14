@@ -6,7 +6,7 @@ export const PrivateRoute = ({children})=>{
     const auth = useSelector((store)=>store.authReducer.isAuth);
     const location = useLocation();
 
-let isToken = JSON.parse(localStorage.getItem("TOKEN"));
+let isToken = useSelector(store => store.authReducer.token);
 console.log("kunal");
 
 

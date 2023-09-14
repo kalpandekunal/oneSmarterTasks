@@ -70,7 +70,7 @@
     color: #bbb;
   }
 
-  button[type="submit"] {
+  /* button[type="submit"] {
     text-indent: -999px;
     overflow: hidden;
     width: 40px;
@@ -92,7 +92,7 @@ input[type="search"]:focus {
   
   button[type="submit"]:hover {
     opacity: 1;
-  }
+  } */
 
   #img{
     width: 20px;

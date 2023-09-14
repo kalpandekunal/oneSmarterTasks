@@ -67,7 +67,7 @@ export const ProductDetails = ()=>{
                src={ book.img }
                fit={'cover'}
                align={'center'}
-               marginLeft={'100px'}
+               
                _hover={{'box-shadow': 'rgba(255, 149, 0, 0.4) 5px 5px, rgba(255, 222, 243, 0.3) 10px 10px, rgb(255, 95, 196) 15px 15px, rgba(240, 56, 46, 0.978) 20px 20px, rgba(240, 95, 46, 0.05) 25px 25px'}}
                />
            </Flex>

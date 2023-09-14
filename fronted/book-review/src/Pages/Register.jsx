@@ -31,55 +31,30 @@ export const Signup = () => {
   const dispatch = useDispatch();
 
     const navigate = useNavigate()
-    // const getStrength = (password) => {
-    //     console.log(password);
 
-    //     let strengthIndicator: Number = -1;
-
-    //     let upper = false,
-    //         lower = false,
-    //         numbers = false;
-
-    //     for (let index = 0; index < password.length; index++) {
-    //         let char = password.charCodeAt(index);
-    //         if (!upper && char >= 65 && char <= 90) {
-    //             upper = true;
-    //             strengthIndicator++;
-    //         }
-
-    //         if (!numbers && char >= 48 && char <= 57) {
-    //             numbers = true;
-    //             strengthIndicator++;
-    //         }
-
-    //         if (!lower && char >= 97 && char <= 122) {
-    //             lower = true;
-    //             strengthIndicator++;
-    //         }
-    //     }
-
-    //     setStrength(strengthLabels[strengthIndicator] ?? "");
-    // };
-
-    const handleSignup = () => {
-      const userData = {
-        name,
-        email,
-        password,
-    }
-
-    dispatch(signup(userData))
-    .then((res)=>{
-        alert("Signup Successfull");
-        navigate("/login");
-        
-    })
-    setName("");
-    setEmail("");
-    setPassword("");
-       
-    }
-
+    const handleSignup = (e) => {
+      e.preventDefault();
+      if(!name || !password){
+        alert("Please fill all the fields")
+      }
+      else{
+        let userData = { name, email, password };
+        dispatch(signup(userData)).then(() => {
+    
+          if(email == "User already registered"){
+    
+            alert("User already registered");
+    
+             navigate("/login");
+          }
+          else{
+            alert("Signup Successfull");
+            navigate("/login");
+    
+          }
+        });
+      }
+    };
 
 
 

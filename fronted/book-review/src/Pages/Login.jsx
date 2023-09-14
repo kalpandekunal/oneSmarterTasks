@@ -26,27 +26,29 @@ export const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const isToken = useSelector(store => store.authReducer.token);
 
-    const handleSubmit = ()=>{
-      const userData = {
-          email,
-          password,
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!email || !password){
+      alert("Please fill all the fields")
+    }
+    else{
+      let userData = { email, password };
+      dispatch(login (userData)).then(() => {
+
+            if(location.state == null){
+                  localStorage.setItem("token",JSON.stringify(isToken));
+                  navigate("/");
+                }
+                else{
+                  localStorage.setItem("token",JSON.stringify(isToken));
+                  navigate(location.state, { replace: true });
+                }
+              setEmail("");
+              setPassword("");
+        });
       }
-
-      dispatch(login(userData))
-      .then((res)=>{
-          alert("Login Successfull");
-          if(location.state === null){
-            navigate("/")
-          }
-          else{
-            navigate(location.state, {replace : true});
-          }
-          
-          
-      })
-      setEmail("");
-      setPassword("");
   }
 
   return (

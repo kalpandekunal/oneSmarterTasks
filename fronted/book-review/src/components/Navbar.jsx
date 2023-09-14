@@ -8,12 +8,22 @@ import {
   useColorModeValue,
   Stack,
   useColorMode,
+  Show,
+  Hide,
+  InputRightAddon,
+  InputGroup,
+  Input,
+  useDisclosure,
 } from '@chakra-ui/react'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./Navbar.css";
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { Link, useNavigate } from 'react-router-dom';
+import { MenuDrawer } from './MenuDrawer';
+import { Connect, connect, useSelector } from 'react-redux';
+import { searchProduct } from '../Redux/Product/action';
+import { SearchBook } from './searchbook';
 
 interface Props {
   children: React.ReactNode
@@ -38,57 +48,92 @@ const NavLink = (props: Props) => {
   )
 }
 
-export const Navbar = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+ export const Navbar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [search,setSearch] = useState('');
+  const [searchInput,setSearchInput] = useState('');
   const { colorMode, toggleColorMode } = useColorMode()
 
+  
+  const handleSearch = ()=>{
+      searchProduct(search);
+  }
 
-  let isToken = JSON.parse(localStorage.getItem("TOKEN"));
+  // useEffect(()=>{
+  //   handleSearch();
+  // },[search])
+
+  const isToken = useSelector(store => store.authReducer.token);
 
   const navigate = useNavigate();
 
   const handleLogout = ()=>{
-    localStorage.removeItem("TOKEN");
+    localStorage.removeItem("token");
     navigate('/login');
   }
 
 
   return (
-    <>
+    
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position='fixed' zIndex='1' width='100%' top='0px'>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Link to='/'><Box className='logo'>The Right Book</Box></Link>
+
+          <Hide breakpoint='(max-width:901px)'>
           <div className="search-bar">
+            
           <input
              type="search"
              placeholder="Search..."
-             value={searchTerm}
-             onChange={(e) => setSearchTerm(e.target.value)}
+             value={search}
+             onChange={(e) => setSearch(e.target.value)}
            />
-           <button type="submit">Search</button>
+           <button type="submit" onClick={handleSearch}></button>
+           <SearchBook searchInput={search}/>
         </div>
         
         <label className='menu-button-container' id="menu-toggle"></label>
         <div className='menu-button'></div>
         
-
+        {/* <InputGroup>
+        <InputRightAddon
+        p={0}
+        border={"none"}>
+          
+        </InputRightAddon>
+        </InputGroup> */}
+        
           <Flex alignItems={'center'} width='30%' justifyContent='space-between' fontSize='16px' className='menu'>
-              <Link to='/'><Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'}>Home</Text></Link>
-              <Link to='/dashboard'><Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'}>Dashboard</Text></Link>
-              { isToken ? <Text _hover={{"color":"orange"}} className='li' onClick={handleLogout} fontWeight={'bold'} cursor={'pointer'}>Logout</Text> : 
-              <Link to='/Login'><Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'} >Login</Text></Link>
+              <Link to='/'>
+                <Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'}>Home</Text>
+              </Link>
+              <Link to='/dashboard'>
+                <Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'}>Dashboard</Text>
+              </Link>
+              { 
+                  isToken ? <Text _hover={{"color":"orange"}} className='li' onClick={handleLogout} fontWeight={'bold'} cursor={'pointer'}>Logout</Text> : 
+                  <Link to='/Login'>
+                    <Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'} >Login</Text>
+                  </Link>
               }
-              <Link to='/signup'><Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'}>Signup</Text></Link>
+              <Link to='/signup'>
+                <Text _hover={{"color":"orange"}} className='li' fontWeight={'bold'}>Signup</Text>
+              </Link>
             <Stack direction={'row'} spacing={7}>
-              <Button onClick={toggleColorMode} _hover={{"backgroundColor":"cyan"}}>
-                {colorMode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+                <Button onClick={toggleColorMode} _hover={{"backgroundColor":"cyan"}}>
+                    {colorMode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
               </Button>
-              
             </Stack>
           </Flex>
+          </Hide>
+          
+          <Show breakpoint='(max-width : 900px)'>
+          < MenuDrawer />
+          </Show>
         </Flex>
       </Box>
-    </>
+   
+   
   )
 }
 

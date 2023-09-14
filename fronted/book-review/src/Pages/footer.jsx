@@ -21,11 +21,11 @@ const Footer = () => {
             <Text className="hover">Return and Exchange Policy</Text>
           </Box>
 
-          <Box className="help">
+          {/* <Box className="help">
             <Text className="text-color" fontSize={18} color="#800000">NETWORK</Text>
             <Text className="hover">Contacy Us</Text>
             <Text className="hover">Corporate Gifting</Text>
-          </Box>
+          </Box> */}
 
           <Box className="download_app">
             <Text className="text-color" fontSize={18} color="#800000" mb="10px">
