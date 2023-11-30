@@ -13,10 +13,10 @@ A website where the user can create,read,update and delete the review on a book.
 * Then deploy on any cloud service : AWS, Netlify, Vercel.
 
 # TechStack
-* For FrontEnd : HTML, CSS, JS, REACT
-* For Backend : Node.js, Express.js, Mongoose, MongoDB, JWT
-* For Styling : Styled Components, ChakraUI
-* For Deploying : AWS
+* FrontEnd : HTML, CSS, JS, REACT
+* Backend : Node.js, Express.js, Mongoose, MongoDB, JWT
+* Styling : Styled Components, ChakraUI
+* Deploying : AWS
 
 # Features
 * HomePage, Search, Footer
